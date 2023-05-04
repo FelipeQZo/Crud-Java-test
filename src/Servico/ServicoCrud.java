@@ -1,16 +1,17 @@
 package Servico;
 
-import Entidades.Pessoa;
+import Entidades.Computador;
+import Entidades.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ServicoCrud implements Crud{
 
-    private List<Pessoa> listaPessoa = new ArrayList<Pessoa>();
+    private List<Produto> listaPessoa = new ArrayList<Produto>();
 
     @Override
-    public boolean salvarPessoa(Pessoa pessoa) {
+    public boolean salvarProduto(Produto pessoa) {
         try {
             listaPessoa.add(pessoa);
         }
@@ -21,15 +22,15 @@ public class ServicoCrud implements Crud{
     }
 
     @Override
-    public List<Pessoa> listarPessoa() {
+    public List<Produto> listarProduto() {
         return listaPessoa;
     }
 
     @Override
-    public boolean deletarPessoa(long id) {
-        for (Pessoa pessoa : listaPessoa) {
-            if (pessoa.getId() == id) {
-                listaPessoa.remove(pessoa);
+    public boolean deletarProduto(long id) {
+        for (Produto produto : listaPessoa) {
+            if (produto.getId() == id) {
+                listaPessoa.remove(produto);
                 return true;
             }
         }
@@ -37,7 +38,15 @@ public class ServicoCrud implements Crud{
     }
 
     @Override
-    public boolean alterarPessoa(Pessoa pessoa) {
+    public boolean alterarProduto(Produto produto) {
+        for ( Produto produtos : listaPessoa) {
+            if (produto.getId() == produto.getId()) {
+                listaPessoa.remove(produto);
+                salvarProduto(produto);
+            }
+        }
         return false;
     }
+
+
 }

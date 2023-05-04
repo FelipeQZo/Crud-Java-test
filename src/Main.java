@@ -1,7 +1,6 @@
-import Entidades.Pessoa;
+import Entidades.*;
 import Servico.ServicoCrud;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -9,43 +8,48 @@ public class Main {
     public static void main(String[] args) {
 
         testeDeArray();
-        listarPessoas();
-        test.deletarPessoa(2);
-        System.out.println("APOS O METODO DELETE");
-        listarPessoas();
+        listarProduto();
+        test.deletarProduto(2);
+        System.out.println("======================\nAPOS O METODO DELETE");
+        listarProduto();
+        System.out.println("======================\nAPOS O METODO ALTERAR");
+        listarProduto();
+    }
+
+    public static void alterar(){
+        Computador produto = new Computador(01,"Pichau","AMD RYZEN 5",4000);
+        test.alterarProduto(produto);
 
     }
 
     static void testeDeArray(){
-//        ServicoCrud test = new ServicoCrud();
-        Pessoa pessoa = new Pessoa(01,"Felipe","Queiroz",20);
+        Computador computador = new Computador(01,"Rocketz","I9 9500F",20000);
 
+        test.salvarProduto(computador);
 
-        test.salvarPessoa(pessoa);
+        Carro carro = new Carro(02,"Mustang","1996",560000);
+        test.salvarProduto(carro);
 
-        Pessoa pessoa2 = new Pessoa(02,"Jozimar","Junior",28);
-        test.salvarPessoa(pessoa2);
+        Headphone headphone = new Headphone(03,"Anker","Soundcore Q30",320);
 
-        Pessoa pessoa3 = new Pessoa(03,"Clecia","Furtado",45);
+        test.salvarProduto(headphone);
 
-        test.salvarPessoa(pessoa3);
+        Teclado teclado = new Teclado(04,"Manchenike","K500W",500);
 
-        Pessoa pessoa4 = new Pessoa(04,"Marcelly","Pessoa",25);
-
-        test.salvarPessoa(pessoa4);
+        test.salvarProduto(teclado);
 
     }
-    static void listarPessoas() {
-        List<Pessoa> lista = test.listarPessoa();
+    static void listarProduto() {
+        List<Produto> lista = test.listarProduto();
 
         if (lista.isEmpty()) {
-            System.out.println("Nenhuma pessoa encontrada.");
+            System.out.println("Nenhum produto encontrado.");
         } else {
-            for (Pessoa pessoa : lista) {
-                System.out.println("id: " + pessoa.getId());
-                System.out.println("Nome: " + pessoa.getNome());
-                System.out.println("Sobrenome: " + pessoa.getSobrenome());
-                System.out.println("Idade: " + pessoa.getIdade());
+            for (Produto produto : lista) {
+                System.out.println("id: " + produto.getId());
+                System.out.println("Nome: " + produto.getNome());
+                System.out.println("Sobrenome: " + produto.getModelo());
+                System.out.println("Idade: " + produto.getPreco());
                 System.out.println("---------------------------");
             }
         }

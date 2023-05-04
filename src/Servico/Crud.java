@@ -1,12 +1,14 @@
 package Servico;
 
-import Entidades.Pessoa;
+import Entidades.Computador;
+import Entidades.Produto;
 
 import java.util.List;
 
 public interface Crud {
-    public boolean salvarPessoa(Pessoa pessoa);
-    public List<Pessoa> listarPessoa();
-    public boolean deletarPessoa(long id);
-    public boolean alterarPessoa(Pessoa pessoa);
+    public boolean salvarProduto(Produto produto);
+    public List<Produto> listarProduto();
+    public boolean deletarProduto(long id);
+    public boolean alterarProduto(Produto produto);
+
 }
